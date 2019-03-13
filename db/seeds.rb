@@ -15,8 +15,8 @@
     )
 end
 
-10.times do
 
+10.times do
 Education.create(
     start_date: FFaker::Time.date,
     end_date: FFaker::Time.date,
@@ -25,5 +25,16 @@ Education.create(
     details: FFaker::DizzleIpsum.phrases,
     student_id: rand(1..10)
     )
+end
+
+20.times do
+    Experience.create(
+        start_date: FFaker::Time.date,
+        end_date: FFaker::Time.date,
+        job_title: FFaker::Job.title,
+        company_name: FFaker::Company.name,
+        details: FFaker::Company.catch_phrase,
+        student_id: rand(1..10)
+        )
 
 end
