@@ -14,3 +14,16 @@
     photo_url: FFaker::Image.url
     )
 end
+
+10.times do
+
+Education.create(
+    start_date: FFaker::Time.date,
+    end_date: FFaker::Time.date,
+    degree: FFaker::Education.degree,
+    university_name: FFaker::Education.school_name,
+    details: FFaker::DizzleIpsum.phrases,
+    student_id: rand(1..10)
+    )
+
+end
