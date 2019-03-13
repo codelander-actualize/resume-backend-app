@@ -21,6 +21,7 @@ end
         end_date: FFaker::Time.date,
         job_title: FFaker::Job.title,
         company_name: FFaker::Company.name,
-        details: FFaker::Company.catch_phrase
+        details: FFaker::Company.catch_phrase,
+        student_id: rand(1..10)
         )
 end
