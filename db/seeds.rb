@@ -14,3 +14,13 @@
     photo_url: FFaker::Image.url
     )
 end
+
+20.times do
+    Experience.create(
+        start_date: FFaker::Time.date,
+        end_date: FFaker::Time.date,
+        job_title: FFaker::Job.title,
+        company_name: FFaker::Company.name,
+        details: FFaker::Company.catch_phrase
+        )
+end

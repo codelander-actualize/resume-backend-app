@@ -1,5 +1,5 @@
-json.start_date @experiences.start_date
-json.end_date @experiences.end_date
-json.job_title @experiences.job_title
-json.company_name @experiences.company_name
-json.details @experiences.details
+json.start_date experience.start_date
+json.end_date experience.end_date
+json.job_title experience.job_title
+json.company_name experience.company_name
+json.details experience.details
