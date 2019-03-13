@@ -25,4 +25,18 @@ class Api::ExperiencesController < ApplicationController
     end
   end
 
+  def update
+    @experience = Experience.find(params[:id])
+    @experience.start_date = params[:start_date] || @experience.start_date
+    @experience.end_date = params[:end_date] || @experience.end_date
+    @experience.job_title = params[:job_title] || @experience.job_title
+    @experience.company_name = params[:company_name] || @experience.company_name
+    @experience.details = params[:details] || @experience.details
+    if @experience.save
+      render 'show.json.jbuilder'
+    else
+      render json: {errors: @student.errors.full_messages}, status: :unprocessable_entity
+    end
+  end
+
 end
