@@ -36,8 +36,8 @@ end
         details: FFaker::Company.catch_phrase,
         student_id: rand(1..10)
         )
-
 end
+
 
 20.times do
     Capstone.create(
@@ -47,4 +47,11 @@ end
         image_url: FFaker::Image.url,
         student_id: rand(1..10)
         )
+end
+
+40.times do
+Skill.create(
+    skill_name: FFaker::Skill.tech_skill,
+    student_id: rand(1..10)
+)
 end
