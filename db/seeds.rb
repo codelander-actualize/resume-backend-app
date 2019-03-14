@@ -11,7 +11,8 @@
     personal_blog: FFaker::Internet.http_url,
     online_resume_url: FFaker::Internet.http_url,
     github_url: "github.com/" + FFaker::Name.first_name,
-    photo_url: FFaker::Image.url
+    photo_url: FFaker::Image.url,
+    password: "password"
     )
 end
 

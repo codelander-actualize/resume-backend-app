@@ -1,15 +1,17 @@
 class Api::StudentsController < ApplicationController
-
+  before_action :authenticate_student, except: [:index, :show]
   def index
     @students = Student.all
     render 'index.json.jbuilder'
   end
 
   def show
-    @student = Student.find(params[:id])
+    if current_student
+      @student = current_student
+    else
+      @student = Student.find(params[:id])
+    end
     render 'show.json.jbuilder'
-    #if student logged in show current_student
-    #if not use params[:id]
   end
 
   def create
@@ -24,7 +26,9 @@ class Api::StudentsController < ApplicationController
     personal_blog: params[:personal_blog],
     online_resume_url: params[:online_resume_url],
     github_url: params[:github_url],
-    photo_url: params[:photo_url]
+    photo_url: params[:photo_url],
+    password: params[:password],
+    password_confirmation: params[:password_confirmation]
     )
     if @student.save
       render 'show.json.jbuilder'
@@ -34,7 +38,7 @@ class Api::StudentsController < ApplicationController
   end
 
   def update
-    @student = Student.find(params[:id])
+    @student = current_student
     @student.first_name = params[:first_name] || @student.first_name
     @student.last_name = params[:last_name] || @student.last_name
     @student.email = params[:email] || @student.email
@@ -54,7 +58,7 @@ class Api::StudentsController < ApplicationController
   end
 
   def destroy
-    @student = Student.find(params[:id])
+    @student = current_student
     @student.destroy
     render json: {message: "User successfully destroyed"}
   end
