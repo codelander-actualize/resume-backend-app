@@ -38,3 +38,13 @@ end
         )
 
 end
+
+20.times do
+    Capstone.create(
+        name: FFaker::Product.product,
+        description: FFaker::Company.bs,
+        url: FFaker::Internet.domain_name,
+        image_url: FFaker::Image.url,
+        student_id: rand(1..10)
+        )
+end
