@@ -8,6 +8,9 @@ class Api::StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     render 'show.json.jbuilder'
+
+    #if student logged in show current_student
+    #if not use params[:id]
   end
 
   def create

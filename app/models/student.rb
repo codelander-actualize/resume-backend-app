@@ -4,4 +4,7 @@ class Student < ApplicationRecord
   
   has_many :experiences, dependent: :destroy
 
+  has_many :skills, dependent: :destroy
+  
+
 end
